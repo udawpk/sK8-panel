@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8">
+    <title>Deployment Details - {{ deployment_name }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+      pre { background: #f8f9fa; padding: 10px; }
+    </style>
+  </head>
+  <body class="container mt-4">
+    <h1>Deployment Details</h1>
+    <h2>Deployment: {{ deployment_name }}</h2>
+    <hr>
+    <h3>Deployment YAML Data:</h3>
+    <pre>{{ deployment_yaml }}</pre>
+    
+    <a href="{{ url_for('detail_page', cluster=cluster_name, config=config_file, namespace=namespace) }}" class="btn btn-secondary">Back to Cluster</a>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+streamlit
+kubernetes
+requests
+pydantic
+python-multipart
+streamlit
+pandas
+pyyaml
+tabulate
+flask
+werkzeug
+kubernetes
