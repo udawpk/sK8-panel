@@ -1,3 +1,4 @@
 kubeconfigs/*
 .env
 env
+api_project

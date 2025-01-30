@@ -1,67 +1,14 @@
-<!doctype html>
-<html lang="uk">
-  <head>
-    <meta charset="utf-8">
-    <title>Kubernetes Config Dashboard</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  </head>
-  <body class="container mt-4">
-    <h1>Kubernetes Config Dashboard</h1>
-    
-    <!-- User message -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        <div>
-          {% for category, message in messages %}
-            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-              {{ message }}
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-    {% endwith %}
-    
-    <!-- File upload form -->
-    <h2>Upload Config</h2>
-    <form method="post" enctype="multipart/form-data">
-      <div class="form-group">
-        <input type="file" name="file" class="form-control-file" required>
+<div class="container">
+  <h1 class="text-center mt-5">Kubernetes Dashboard</h1>
+  <p class="text-center">Manage your cluster resources efficiently.</p>
+  
+  <div class="card">
+      <div class="card-body">
+          <h5 class="card-title">Upload Kubernetes Config</h5>
+          <form method="post" enctype="multipart/form-data">
+              <input type="file" name="file" class="form-control-file" required>
+              <button class="btn btn-primary mt-3" type="submit">Upload</button>
+          </form>
       </div>
-      <button class="btn btn-primary" type="submit">Upload</button>
-    </form>
-    <hr>
-    
-    <!-- List of clusters -->
-    <h2>Available Kubernetes Clusters</h2>
-    {% if clusters %}
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Cluster Name</th>
-            <th>Server</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for cluster in clusters %}
-            <tr>
-              <td>{{ cluster["Cluster Name"] }}</td>
-              <td>{{ cluster["Server"] }}</td>
-              <td>
-                <a href="{{ url_for('detail_page', cluster=cluster["Cluster Name"], config=cluster["config"]) }}" class="btn btn-info">Details</a>
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-      <p>No available clusters found.</p>
-    {% endif %}
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  </body>
-</html>
+  </div>
+</div>
